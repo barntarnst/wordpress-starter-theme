@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package jarvaveckan
+ * @package wordpress_starter_theme
  */
 
 get_header();
