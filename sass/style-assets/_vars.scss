@@ -1,0 +1,10 @@
+// colors
+$white: #FFF;
+
+//  e g: @media #{$ipads} { ... }
+$small-phones: "only screen and (max-width: 320px)";
+$phones: "only screen and (max-width: 440px)";
+$small-pads: "only screen and (max-width: 780px)";
+$ipads: "only screen and (max-width: 1024px)";
+$long-phones: "only screen and (max-width: 375px) and (min-height: 680px)";
+$large-screens: "screen and (min-width: 1900px)";
