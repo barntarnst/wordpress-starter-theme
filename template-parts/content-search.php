@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package jarvaveckan
+ * @package wordpress_starter_theme
  */
 
 ?>
@@ -16,20 +16,20 @@
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php
-			jarvaveckan_posted_on();
-			jarvaveckan_posted_by();
+			wordpress_starter_theme_posted_on();
+			wordpress_starter_theme_posted_by();
 			?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php jarvaveckan_post_thumbnail(); ?>
+	<?php wordpress_starter_theme_post_thumbnail(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php jarvaveckan_entry_footer(); ?>
+		<?php wordpress_starter_theme_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

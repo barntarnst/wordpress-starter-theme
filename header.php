@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package jarvaveckan
+ * @package wordpress_starter_theme
  */
 
 ?>
@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'jarvaveckan' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wordpress_starter_theme' ); ?></a>
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
@@ -37,15 +37,15 @@
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
 			endif;
-			$jarvaveckan_description = get_bloginfo( 'description', 'display' );
-			if ( $jarvaveckan_description || is_customize_preview() ) :
+			$wordpress_starter_theme_description = get_bloginfo( 'description', 'display' );
+			if ( $wordpress_starter_theme_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $jarvaveckan_description; /* WPCS: xss ok. */ ?></p>
+				<p class="site-description"><?php echo $wordpress_starter_theme_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'jarvaveckan' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wordpress_starter_theme' ); ?></button>
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',

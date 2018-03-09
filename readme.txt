@@ -1,4 +1,4 @@
-=== jarvaveckan ===
+=== wordpress_starter_theme ===
 
 Contributors: automattic
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
@@ -9,7 +9,7 @@ Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called jarvaveckan.
+A starter theme called wordpress_starter_theme.
 
 == Description ==
 
@@ -25,7 +25,7 @@ Description
 
 = Does this theme support any plugins? =
 
-jarvaveckan includes support for Infinite Scroll in Jetpack.
+wordpress_starter_theme includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
