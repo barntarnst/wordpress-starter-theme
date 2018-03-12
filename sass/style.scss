@@ -59,13 +59,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 @import "style-assets/elements";
 /*--------------------------------------------------------------
-# Devices
+# Content-parts
 --------------------------------------------------------------*/
-@import "devices/base";
-@import "devices/pads-small";
-@import "devices/pads";
-@import "devices/desktop";
-@import "devices/desktop-large";
+@import "content-parts/frontpage";
+@import "content-parts/footer";
+
 /*--------------------------------------------------------------
 # Modules
 --------------------------------------------------------------*/
