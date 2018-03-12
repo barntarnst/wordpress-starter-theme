@@ -8,6 +8,8 @@ $ git clone
 ## run npm install from the command line
 $ npm install
 
+## update config.js with your localhost wordpress url
+
 ## run gulp
 $ gulp
 ```

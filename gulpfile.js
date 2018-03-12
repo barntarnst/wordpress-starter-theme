@@ -10,6 +10,7 @@ var babel = require('gulp-babel')
 var eslint = require('gulp-eslint')
 var browserSync = require('browser-sync').create()
 var reload = browserSync.reload
+var config = require('./config.js')
 
 gulp.task('js', function () {
   return gulp.src(['./js/*.js'])
@@ -33,7 +34,7 @@ gulp.task('sass', function () {
 gulp.task('watch', function () {
   browserSync.init({
     files: ['./**/*.php'],
-    proxy: 'http://localhost/wordpress/wordpress/'
+    proxy: config.proxy
   })
   gulp.watch('./sass/**/*.scss', ['sass', reload])
   gulp.watch('./js/*.js', ['js', reload])
