@@ -31,6 +31,15 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./dist'))
 })
 
+gulp.task('editor-styles', function () {
+  return gulp.src('./sass/editor-styles.scss')
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(rename('editor-styles.css'))
+    .pipe(gulp.dest('./dist'))
+})
+
 gulp.task('watch', function () {
   browserSync.init({
     files: ['./**/*.php'],
@@ -38,6 +47,7 @@ gulp.task('watch', function () {
   })
   gulp.watch('./sass/**/*.scss', ['sass', reload])
   gulp.watch('./js/*.js', ['js', reload])
+  gulp.watch('./sass/style-assets/_typography.scss', ['editor-styles', reload])
 })
 
-gulp.task('default', ['sass', 'js', 'watch'])
+gulp.task('default', ['sass', 'js', 'watch', 'editor-styles'])
