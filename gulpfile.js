@@ -11,7 +11,6 @@ var eslint = require('gulp-eslint')
 var browserSync = require('browser-sync').create()
 var reload = browserSync.reload
 var config = require('./config.js')
-
 gulp.task('js', function () {
   return gulp.src(['./js/*.js'])
     .pipe(eslint())
@@ -22,24 +21,27 @@ gulp.task('js', function () {
     .pipe(uglify())
     .pipe(gulp.dest('./dist'))
 })
-
 gulp.task('sass', function () {
   return gulp.src('./sass/style.scss')
     .pipe(sass())
-    .pipe(autoprefixer())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./dist'))
 })
-
 gulp.task('editor-styles', function () {
   return gulp.src('./sass/editor-styles.scss')
     .pipe(sass())
-    .pipe(autoprefixer())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(rename('editor-styles.css'))
     .pipe(gulp.dest('./dist'))
 })
-
 gulp.task('watch', function () {
   browserSync.init({
     files: ['./**/*.php'],
@@ -49,5 +51,4 @@ gulp.task('watch', function () {
   gulp.watch('./js/*.js', ['js', reload])
   gulp.watch('./sass/style-assets/_typography.scss', ['editor-styles', reload])
 })
-
 gulp.task('default', ['sass', 'js', 'watch', 'editor-styles'])
