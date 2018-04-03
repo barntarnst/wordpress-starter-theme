@@ -12,6 +12,9 @@ $ npm install
 
 ## run gulp
 $ gulp
+
+## production
+$ gulp --production
 ```
 
 
