@@ -20,7 +20,7 @@ gulp.task('js', function () {
     .pipe(concat('app.js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist/js/'))
 })
 gulp.task('sass', function () {
   return gulp.src('./src/sass/style.scss')
@@ -30,7 +30,7 @@ gulp.task('sass', function () {
       cascade: false
     }))
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist/css/'))
 })
 gulp.task('editor-styles', function () {
   return gulp.src('./src/sass/editor-styles.scss')
@@ -41,7 +41,7 @@ gulp.task('editor-styles', function () {
     }))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(rename('editor-styles.css'))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist/css/'))
 })
 gulp.task('watch', function () {
   browserSync.init({
@@ -53,3 +53,5 @@ gulp.task('watch', function () {
   gulp.watch('./src/sass/style-assets/_typography.scss', ['editor-styles', reload])
 })
 gulp.task('default', ['sass', 'js', 'watch', 'editor-styles'])
+
+gulp.task('production', ['sass', 'js', 'editor-styles'])
