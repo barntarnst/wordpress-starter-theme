@@ -1,4 +1,5 @@
 <?php
+namespace WordpressStarterTheme;
 /**
  * wordpress_starter_theme functions and definitions
  *
@@ -7,7 +8,7 @@
  * @package wordpress_starter_theme
  */
 
-if ( ! function_exists( 'wordpress_starter_theme_setup' ) ) :
+if ( ! function_exists( __NAMESPACE__ . '\\setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -15,7 +16,7 @@ if ( ! function_exists( 'wordpress_starter_theme_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function wordpress_starter_theme_setup() {
+	function setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -57,13 +58,7 @@ if ( ! function_exists( 'wordpress_starter_theme_setup' ) ) :
 			'comment-list',
 			'gallery',
 			'caption',
-		) );
-
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'wordpress_starter_theme_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+    ) );
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -81,7 +76,7 @@ if ( ! function_exists( 'wordpress_starter_theme_setup' ) ) :
 		) );
 	}
 endif;
-add_action( 'after_setup_theme', 'wordpress_starter_theme_setup' );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\\setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -90,20 +85,20 @@ add_action( 'after_setup_theme', 'wordpress_starter_theme_setup' );
  *
  * @global int $content_width
  */
-function wordpress_starter_theme_content_width() {
+function content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'wordpress_starter_theme_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( __NAMESPACE__ . '\\content_width', 640 );
 }
-add_action( 'after_setup_theme', 'wordpress_starter_theme_content_width', 0 );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\\content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function wordpress_starter_theme_widgets_init() {
+function widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'wordpress_starter_theme' ),
 		'id'            => 'sidebar-1',
@@ -114,26 +109,26 @@ function wordpress_starter_theme_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'wordpress_starter_theme_widgets_init' );
+add_action( 'widgets_init', __NAMESPACE__ . '\\widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function wordpress_starter_theme_scripts() {
-  wp_enqueue_style( 'style.css', get_template_directory_uri() . '/dist/style.css',false,'1.1','all');
+function scripts() {
+  wp_enqueue_style( 'style.css', get_template_directory_uri() . '/dist/css/style.css',false,'1.1','all');
   wp_enqueue_script( 'jquery-js', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js', array(), null, true );
-	wp_enqueue_script( 'wordpress_starter_theme-main', get_template_directory_uri() . '/dist/app.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'wordpress_starter_theme-main', get_template_directory_uri() . '/dist/js/app.min.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'wordpress_starter_theme_scripts' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\scripts' );
 
 function custom_editor_styles() {
-	add_editor_style('/dist/editor-styles.css');
+	add_editor_style('/dist/css/editor-styles.css');
 }
-add_action('init', 'custom_editor_styles');
+add_action('init', __NAMESPACE__ . '\\custom_editor_styles');
 
 /**
  * Implement the Custom Header feature.
